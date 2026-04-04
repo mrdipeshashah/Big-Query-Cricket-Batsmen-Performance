@@ -1,0 +1,26 @@
+# Create a dictionary of your 4 files and what you want to name them in BQ
+# Make sure the paths match where your files are in Drive
+files_to_upload = {
+    '/content/drive/MyDrive/Cricket/TopBat1.csv': 'standard_stats',
+    '/content/drive/MyDrive/Cricket/TopBat4.csv': 'career_history',
+    '/content/drive/MyDrive/Cricket/TopBat6.csv': 'weighted_performance',
+    '/content/drive/MyDrive/Cricket/TopBat9.csv': 'impact_metrics'
+}
+
+for file_path, table_name in files_to_upload.items():
+    # Load data
+    df = pd.read_csv(file_path)
+    
+    # Final cleanup: Remove spaces from column names (BigQuery hates spaces)
+    df.columns = [c.replace(' ', '_').replace('%', 'pct').replace('-', '_') for c in df.columns]
+    
+    # Push to BigQuery
+    table_id = f"{project_id}.cricket_analysis.{table_name}"
+    
+    # Configure the job to overwrite if the table exists (good for testing)
+    job_config = bigquery.LoadTableFromDataFrameConfig(write_disposition="WRITE_TRUNCATE")
+    
+    job = client.load_table_from_dataframe(df, table_id, job_config=job_config)
+    job.result()  # Wait for the upload to finish
+    
+    print(f"🚀 Successfully uploaded {table_name} to BigQuery!")
