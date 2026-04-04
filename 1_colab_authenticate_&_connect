@@ -1,0 +1,16 @@
+from google.colab import auth, drive
+import pandas as pd
+from google.cloud import bigquery
+from google.auth import default
+
+# 1. Login to your Google account
+auth.authenticate_user()
+creds, _ = default()
+
+# 2. Setup the BigQuery Client
+# REPLACE 'your-project-id' with your actual Project ID from Google Cloud
+project_id = 'your-project-id' 
+client = bigquery.Client(project=project_id, credentials=creds)
+
+# 3. Mount your Drive to access the sheets
+drive.mount('/content/drive')
