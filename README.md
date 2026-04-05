@@ -47,3 +47,44 @@ IPV_Raw: Independent Player Value; a "Peak Impact" metric isolating a player's p
 
 The Final Output
 Final_GOAT_Score: A composite, weighted index (0-100) that aggregates Longevity, Peak Impact, Consistency, and X-Factor. This is the primary sorting metric for the leaderboard.
+
+The GOAT Index: 100-Point Distribution
+To identify the greatest of all time, the model aggregates performance across six core "Pillars." Each pillar is normalized against the all-time statistical leader in that category to ensure a fair 0–100 scale.
+
+1. Longevity & Volume (12.5% / 12.5 Pts)
+Metric: Career Total Runs.
+
+Logic: Recognizes the "Iron Men" of the game. While runs aren't everything, the ability to maintain world-class form over 10,000+ runs is a mandatory requirement for GOAT status.
+
+2. Consistent Dominance (10% / 10 Pts)
+Metric: ICC/Standardized Performance Rating.
+
+Logic: Uses historical ratings to reward players who maintained the "World #1" or "Elite" status for the longest periods during their active years.
+
+3. The X-Factor (20% / 20 Pts)
+Metric: Combined Strike Rate, Century Frequency, and Man of the Match (MOM) Awards.
+
+Logic: This separates "Accumulators" from "Match Winners." It rewards players who score fast, score big centuries often, and are the primary reason their team wins individual matches.
+
+4. Weighted Batting Achievement - WBA (32.5% / 32.5 Pts)
+Metric: Average Relative to Team + Average Relative to Opposition.
+
+Logic: The "Hero" Metric. This is the heaviest weight in the model. It asks: "How much better were you than your teammates and the era you played in?" This ensures a player who averaged 50 on "minefield" pitches in the 90s is valued more than one who averaged 50 on "flat tracks" in the 2010s.
+
+5. Reliability & Quality (15% / 15 Pts)
+Metric: Consistency Raw + Bowling Quality Raw.
+
+Logic: Rewards players who performed consistently against high-quality bowling attacks. It penalizes "stat-padding" against weak opposition and rewards those who stood up against the best in the world.
+
+6. Peak Impact Value - IPV (10% / 10 Pts)
+Metric: Independent Player Value (IPV).
+
+Logic: Measures a player's "Peak" (their best 3–5 year window) to ensure that legends with shorter but legendary peaks (like Don Bradman or Viv Richards) aren't buried by those who simply played longer.
+
+
+
+
+
+
+
+
