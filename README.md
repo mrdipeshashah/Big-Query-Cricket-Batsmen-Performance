@@ -26,8 +26,4 @@ Consistency Score (15.0 pts): ( (Cons_Raw + Bow_Q_Raw) / Maximum Combined Consis
 Peak Impact Points (10.0 pts): (IPV_Raw / Maximum IPV_Raw) * 10.0
 
 
-Pillar,Weight,Key Components
-Longevity,22.5,Aggregate Runs & Peak Rating
-X-Factor,20.0,Strike Rate & Dominance
-Context,32.5,WBA (Team/Opp Context)
-Impact,25.0,Consistency & Bowler Quality
+<img width="754" height="273" alt="image" src="https://github.com/user-attachments/assets/beeb715c-9273-4b8a-8728-eaf0fed94c29" />
