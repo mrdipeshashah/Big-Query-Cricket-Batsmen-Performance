@@ -81,7 +81,45 @@ Metric: Independent Player Value (IPV).
 
 Logic: Measures a player's "Peak" (their best 3–5 year window) to ensure that legends with shorter but legendary peaks (like Don Bradman or Viv Richards) aren't buried by those who simply played longer.
 
+# The Math Behind the Ranking
 
+To ensure a fair comparison across different eras and playing styles, every player’s raw statistics are converted into a **Weighted Pillar Score**. We use a **Max-Ratio Normalization** formula, which benchmarks every player against the "Gold Standard" (the all-time statistical leader) in each specific category.
+
+### **The Core Formula**
+
+This formula ensures that the "Best in Class" for any category receives 100% of the available points for that pillar, with all other players ranked proportionally behind them:
+
+$$Score = \left( \frac{Player\ Metric}{Max\ Global\ Metric} \right) \times Pillar\ Weight$$
+
+---
+
+### **Calculation Examples**
+
+To see how this works in practice, here are three examples of how points are awarded across different pillars:
+
+#### **1. Longevity & Volume (Weight: 12.5 Pts)**
+* **The Benchmark (Max):** Sachin Tendulkar (~15,921 runs)
+* **Player Example:** Brian Lara (~11,953 runs)
+* **The Math:** `(11,953 / 15,921) * 12.5`
+* **Points Awarded:** **9.38 / 12.5**
+
+#### **2. The X-Factor (Weight: 20 Pts)**
+* **The Benchmark (Max):** A theoretical top score of **85.0** (combined Strike Rate + Centuries + MOM).
+* **Player Example:** A modern aggressive batsman with a combined score of **72.0**.
+* **The Math:** `(72.0 / 85.0) * 20`
+* **Points Awarded:** **16.94 / 20**
+* *Insight: This allows high-impact modern players to remain competitive with high-volume legends.*
+
+#### **3. Weighted Batting Achievement - WBA (Weight: 32.5 Pts)**
+* **The Benchmark (Max):** The highest "Era-Adjusted" score in the database (e.g., **2.8**).
+* **Player Example:** A player with a WBA raw score of **2.1** (indicating they were significantly better than their peers).
+* **The Math:** `(2.1 / 2.8) * 32.5`
+* **Points Awarded:** **24.37 / 32.5**
+
+---
+
+### **Dynamic Benchmarking**
+The "Max Global Metric" is not a fixed number; it is dynamically identified by the SQL script from the current dataset. As active players like Joe Root or Virat Kohli increase their career totals or improve their averages, the benchmarks adjust, ensuring the **Final GOAT Score** is always a reflection of the total history of the game.
 
 
 
