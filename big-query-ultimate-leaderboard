@@ -1,3 +1,4 @@
+CREATE OR REPLACE TABLE `mrdipeshashah.cricket_analysis.ultimate_goat_leaderboard` AS
 WITH metrics AS (
   SELECT 
     TRIM(f.Player) as Player,
@@ -5,7 +6,7 @@ WITH metrics AS (
     SAFE_CAST(LEFT(TRIM(f.Career), 4) AS INT64) as start_int,
     SAFE_CAST(RIGHT(TRIM(f.Career), 4) AS INT64) as end_int,
     f.Runs, f.Average,
-    SAFE_CAST(f.Rating AS FLOAT64) as Rating,
+    SAFE_CAST(f.Rating AS FLOAT64) as Rating, -- Kept raw rating for reference
     i.Strike_Rate, i.Century_Frequency, 
     SAFE_CAST(i.MOM_Awards AS FLOAT64) as MOM,
     i.WinsR, i.WinsS,
@@ -15,8 +16,6 @@ WITH metrics AS (
     COALESCE(c.Bow_Q_Raw, 0) as Bow_Q_Raw, 
     COALESCE(c.IPV_Raw, 0) as IPV_Raw
   FROM `mrdipeshashah.cricket_analysis.full_career_history` f
-  
-  -- RE-APPLYING THE FUZZY JOIN: Prevents Sangakkara/Chanderpaul data loss
   LEFT JOIN `mrdipeshashah.cricket_analysis.impact_metrics` i 
     ON f.Player LIKE CONCAT(i.Player, '%') OR i.Player LIKE CONCAT(f.Player, '%')
   LEFT JOIN `mrdipeshashah.cricket_analysis.weighted_performance` w 
@@ -24,67 +23,69 @@ WITH metrics AS (
   LEFT JOIN `mrdipeshashah.cricket_analysis.stg_consistency_clean` c 
     ON f.Player LIKE CONCAT(c.Player, '%') OR c.Player LIKE CONCAT(f.Player, '%')
 ),
+calculated_metrics AS (
+  SELECT *,
+    (Average - AVG(Average) OVER(PARTITION BY 
+      CASE 
+        WHEN start_int < 1970 THEN 'Pre-1970'
+        WHEN start_int BETWEEN 1970 AND 1979 THEN '70s'
+        WHEN start_int BETWEEN 1980 AND 1989 THEN '80s'
+        WHEN start_int BETWEEN 1990 AND 1999 THEN '90s'
+        WHEN start_int BETWEEN 2000 AND 2009 THEN '00s'
+        WHEN start_int BETWEEN 2010 AND 2019 THEN '10s'
+        ELSE '20s' 
+      END
+    )) / NULLIF(STDDEV(Average) OVER(PARTITION BY 
+      CASE 
+        WHEN start_int < 1970 THEN 'Pre-1970'
+        WHEN start_int BETWEEN 1970 AND 1979 THEN '70s'
+        WHEN start_int BETWEEN 1980 AND 1989 THEN '80s'
+        WHEN start_int BETWEEN 1990 AND 1999 THEN '90s'
+        WHEN start_int BETWEEN 2000 AND 2009 THEN '00s'
+        WHEN start_int BETWEEN 2010 AND 2019 THEN '10s'
+        ELSE '20s' 
+      END
+    ), 0) as raw_z
+  FROM metrics
+),
 max_values AS (
   SELECT 
     MAX(Runs) as m_runs, 
-    MAX(Rating) as m_rating,
     MAX((COALESCE(Strike_Rate,0) * 0.1) + (COALESCE(Century_Frequency,0) * 5) + (COALESCE(MOM,0) * 2)) as m_x,
     MAX(wba_raw) as m_wba,
     MAX(Cons_Raw + Bow_Q_Raw) as m_cons,
-    MAX(IPV_Raw) as m_ipv
-  FROM metrics
+    MAX(IPV_Raw) as m_ipv,
+    MAX(raw_z) as m_z
+  FROM calculated_metrics
 )
 SELECT 
-  r.Player, r.Country, r.Career,
-  r.Career_Year_INT,
-  r.Career_Start_Date,
-  r.Career_End_Date,
-  r.Career_Start_Numeric,
-  r.Era,
-  r.Longevity_Tier,
-  r.Run_Tier,
-  r.Avg_Tier,
-  r.Batting_Style,
-  r.Runs, r.Average, r.Rating, r.Team_Runs,
-  r.Strike_Rate, r.Century_Frequency, r.MOM_Awards,
-  r.Win_Run_Percentage, 
-  r.Win_Strike_Rate,
-
-  -- THE ERA Z-SCORE: Compares player average to their decade's mean
+  r.*, -- Re-adding ALL raw fields (Dates, Year_Int, wba_raw, etc.)
+  -- ERA Z-SCORE
+  ROUND(r.raw_z, 2) as Era_ZScore,
+  -- NEW ROUNDED POINTS
+  ROUND(COALESCE((r.wba_raw / m.m_wba) * 35, 0), 2) as Pts_WBA,
+  ROUND(COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 25, 0), 2) as Pts_XFactor,
+  ROUND(COALESCE(((r.Cons_Raw + r.Bow_Q_Raw) / m.m_cons) * 20, 0), 2) as Pts_Consistency,
+  ROUND(COALESCE((r.IPV_Raw / m.m_ipv) * 15, 0), 2) as Pts_PeakImpact,
+  ROUND(COALESCE((r.raw_z / m.m_z) * 10, 0), 2) as Pts_EraDominance,
+  ROUND(COALESCE((r.Runs / m.m_runs) * 5, 0), 2) as Pts_Career,
+  -- FINAL GOAT SCORE
   ROUND(
-    (r.Average - AVG(r.Average) OVER(PARTITION BY r.Era)) / 
-    NULLIF(STDDEV(r.Average) OVER(PARTITION BY r.Era), 0)
-  , 2) as Era_ZScore,
-
-  -- POINTS BREAKDOWN
-  ROUND(COALESCE((r.Runs / m.m_runs) * 12.5, 0), 2) as Pts_Career,
-  ROUND(COALESCE((r.Rating / m.m_rating) * 10.0, 0), 2) as Pts_Rating,
-  ROUND(COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 20.0, 0), 2) as Pts_XFactor,
-  ROUND(COALESCE((r.wba_raw / m.m_wba) * 32.5, 0), 2) as Pts_WBA,
-  ROUND(COALESCE(((r.Cons_Raw + r.Bow_Q_Raw) / m.m_cons) * 15.0, 0), 2) as Pts_Consistency,
-  ROUND(COALESCE((r.IPV_Raw / m.m_ipv) * 10.0, 0), 2) as Pts_PeakImpact,
-
-  -- THE FINAL GOAT SCORE
-  ROUND(
-    COALESCE((r.Runs / m.m_runs) * 12.5, 0) + 
-    COALESCE((r.Rating / m.m_rating) * 10.0, 0) + 
-    COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 20.0, 0) + 
-    COALESCE((r.wba_raw / m.m_wba) * 32.5, 0) + 
-    COALESCE(((r.Cons_Raw + r.Bow_Q_Raw) / m.m_cons) * 15.0, 0) + 
-    COALESCE((r.IPV_Raw / m.m_ipv) * 10.0, 0)
+    COALESCE((r.wba_raw / m.m_wba) * 35, 0) + 
+    COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 25, 0) + 
+    COALESCE(((r.Cons_Raw + r.Bow_Q_Raw) / m.m_cons) * 20, 0) + 
+    COALESCE((r.IPV_Raw / m.m_ipv) * 15, 0) + 
+    COALESCE((r.raw_z / m.m_z) * 10, 0) + 
+    COALESCE((r.Runs / m.m_runs) * 5, 0)
   , 2) as Final_GOAT_Score
-
 FROM (
   SELECT *, 
-    CAST(start_int AS INT64) as Career_Year_INT,
+    start_int as Career_Year_INT,
+    start_int as Career_Start_Numeric,
     PARSE_DATE('%Y', CAST(start_int AS STRING)) as Career_Start_Date,
     PARSE_DATE('%Y', CAST(end_int AS STRING)) as Career_End_Date,
-    start_int as Career_Start_Numeric,
-    MOM as MOM_Awards,
     WinsR as Win_Run_Percentage,
     WinsS as Win_Strike_Rate,
-
-    -- COHORTS
     CASE 
       WHEN start_int < 1970 THEN 'Pre-1970'
       WHEN start_int BETWEEN 1970 AND 1979 THEN '70s'
@@ -94,14 +95,12 @@ FROM (
       WHEN start_int BETWEEN 2010 AND 2019 THEN '10s'
       ELSE '20s' 
     END as Era,
-
     CASE 
       WHEN (end_int - start_int) >= 15 THEN '15+ Years (Iron Man)'
       WHEN (end_int - start_int) BETWEEN 10 AND 14 THEN '10-14 Years (Veteran)'
       WHEN (end_int - start_int) BETWEEN 5 AND 9 THEN '5-9 Years (Established)'
       ELSE '<5 Years (Short Peak)'
     END as Longevity_Tier,
-
     CASE 
       WHEN Runs >= 13000 THEN '13k+ Ultra-Longevity'
       WHEN Runs BETWEEN 10000 AND 12999 THEN '10k-13k Legend'
@@ -109,7 +108,6 @@ FROM (
       WHEN Runs BETWEEN 4000 AND 6999 THEN '4k-7k Established'
       ELSE '<4k Specialist/Early'
     END as Run_Tier,
-
     CASE 
       WHEN Average >= 60 THEN '60+ Immortal'
       WHEN Average BETWEEN 55 AND 59.99 THEN '55-60 Elite'
@@ -119,14 +117,13 @@ FROM (
       WHEN Average BETWEEN 35 AND 39.99 THEN '35-40 Solid'
       ELSE '<35 Sub-Par'
     END as Avg_Tier,
-
     CASE 
       WHEN Strike_Rate >= 60 THEN 'Aggressor'
       WHEN Strike_Rate BETWEEN 50 AND 59.99 THEN 'Proactive'
       WHEN Strike_Rate BETWEEN 40 AND 49.99 THEN 'Anchor'
       ELSE 'Blocker'
-    END as Batting_Style
-
-  FROM metrics
+    END as Batting_Style,
+    MOM as MOM_Awards
+  FROM calculated_metrics
 ) r, max_values m
 ORDER BY Final_GOAT_Score DESC;
