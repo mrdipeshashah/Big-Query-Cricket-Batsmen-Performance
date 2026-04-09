@@ -1,7 +1,5 @@
-# gggg
 
-
-# The Modern Test GOAT Index (1970 – Present)
+# The Modern Test GOAT Index (from 1970 – to early 2026)
 **An Advanced Statistical Framework for Evaluating Cricket Batting Excellence**
 
 ## Project Overview
