@@ -1,5 +1,5 @@
 
-# The Modern Test GOAT Index (from 1970 – to early 2026 incluidng the 5th Ashes test)
+# The GOAT INDEX for Modern era test batsmen (from 1970 – to early 2026 incluidng the 5th Ashes test)
 **An Advanced Statistical Framework for Evaluating Cricket Batting Excellence**
 
 ## Project Overview
