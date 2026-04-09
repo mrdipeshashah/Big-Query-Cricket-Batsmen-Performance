@@ -7,8 +7,6 @@ Came across a twitter debate who was the greatest test batsmen. There were some 
 
 Using a weighted 100-point system across six performance pillars, the model normalizes for era-specific difficulty, quality of bowling faced, and situational pressure.
 
-The final output is a tiered classification system where a score of **80+** denotes "Immortal" status—a feat achieved by fewer than 0.1% of all professional cricketers.
-
 ---
 
 ## Data Pipeline & Architecture
