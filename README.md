@@ -80,10 +80,10 @@ The GOAT INDEX was calculated from 6 pillars and each pillar weighted to its imp
 
 Comparing Ben Stokes and Jacques Kallis (the batsmen) 
 
-Batting Average - 34.86 v 55.37
-4th Innings Average - 34 v 44 
-Weighted Batting Average - 34.12 v 50.72
-GOAT INDEX - 61.38 v 79.56
+* **Batting Average - 34.86 v 55.37
+* **4th Innings Average - 34 v 44 
+* **Weighted Batting Average - 34.12 v 50.72
+* **GOAT INDEX - 61.38 v 79.56
 
 The model created is not valuing as high Kallis longer career where Stokes is rewarded for his match winning innings that is not truly reflected in his average but shows more fairly in the GOAT INDEX.  
 
