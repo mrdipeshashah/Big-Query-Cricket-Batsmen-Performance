@@ -14,7 +14,7 @@ Using a weighted 100-point system across six performance pillars, the model norm
 * **Ingestion:** Raw career metrics gathered via **Notepad** > **Excel** > **Google Sheets**.
 * **Processing:** Data cleaning, player normalization, and feature engineering performed in **Google Colab (Python)**.
 * **Data Warehouse:** Cleaned data hosted in **Google BigQuery** for high-speed SQL aggregations and Z-Score calculations.
-* **Visualization:** Dynamic reporting and scatter plot analysis built in **Looker Studio**.
+* **Visualization:** Story telling and analysis built in **Looker Studio**.
 
 ---
 
