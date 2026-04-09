@@ -90,6 +90,3 @@ Players are mapped into tiers based on their **Final GOAT Score**:
 * **Bowling Quality:** While Z-Scores normalize for era-means, they cannot fully capture the "fear factor" of specific batteries like the 90s West Indies pace attack.
 * **Series Leverage:** Current logic weights match-winning innings equally; future iterations (v3.0) will include multipliers for series-clinching performances.
 
----
-**Author:** Dipesh Shah  
-**Tools:** SQL (BigQuery), Python (Colab), Looker Studio
