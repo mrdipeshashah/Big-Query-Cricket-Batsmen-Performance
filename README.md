@@ -18,7 +18,7 @@ Using a weighted 100-point system across six performance pillars, the model norm
 
 ---
 
-## Dimensions & Metrics Reference
+## DIMENSIONS & METRICS REFERENCE
 
 ### Core Dimensions
 * **Player:** The unique identifier for each batsman in the dataset.
