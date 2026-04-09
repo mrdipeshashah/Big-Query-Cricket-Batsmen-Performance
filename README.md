@@ -9,7 +9,7 @@ Using a weighted 100-point system across six performance pillars, the model norm
 
 ---
 
-## Data Pipeline & Architecture
+## DATA PIPELINE & ARCHITECTURE
 
 * **Ingestion:** Raw career and match metrics gathered via **Google Sheets**.
 * **Processing:** Data cleaning, player normalization, and feature engineering performed in **Google Colab (Python)**.
