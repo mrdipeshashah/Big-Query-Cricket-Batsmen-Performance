@@ -22,13 +22,15 @@ Using a weighted 100-point system across six performance pillars, the model norm
 
 The master Big Query table had a total of 39 dimensions and metrics. 
 
+Summary of the core dimensions and metrics: 
+
 ### Core Dimensions
 * **Player:** The unique identifier for each batsman in the dataset.
 * **Country:** The international team represented by the player.
 * **Era (Decade):** The specific time period used to calculate relative Z-Scores (e.g., 1990s, 2000s).
 * **Span:** The start and end years of the player's international career.
 
-### Performance Metrics
+### Core Performance Metrics
 * **Mat / Inns:** Total matches played and innings batted.
 * **Runs:** Total career runs scored in Test Cricket.
 * **Ave:** The traditional batting average (Runs / Dismissals).
