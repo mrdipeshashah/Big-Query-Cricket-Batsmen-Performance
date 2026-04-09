@@ -3,8 +3,7 @@
 **Moving away from averages, 100's scored by batsmen to evalualte test batting performance and who the GOAT batsmen are**
 
 ## OVERVIEW
-Came across a twitter debate who was the greatest test batsmen. There were some varying opinions in the twitter debate and within the twitter thread there was some data shared saved in noptepad file in a dropbox folder. I decided let me do my own analysis and build out some visulisations
-to find out who are the GOAT test batsmen.  
+Came across a twitter debate who was the greatest test batsmen. There were some varying opinions in the twitter debate and within the twitter thread with an open data source (https://p.imgci.com/db/DOWNLOAD/100/0163/Ananth_Test_Indices_Primer coming from Anantha Narayanan). I decided to do my own analysis and build out some visulisations to find out who are the GOAT test batsmen.  
 
 This project moves beyond the traditional "Batting Average" to identify the true immortals of modern Test Cricket. By applying a weighted 100-point system across six performance pillars, the model normalizes for era-specific difficulty, quality of bowling faced, and situational pressure.
 
