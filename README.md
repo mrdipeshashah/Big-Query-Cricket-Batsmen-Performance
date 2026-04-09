@@ -1,5 +1,5 @@
 
-# The GOAT INDEX for Modern era test batsmen (from 1970 – to early 2026 incluidng the 5th Ashes test)
+# The GOAT INDEX for Modern era test batsmen (from 1970 – to early 2026 including the 5th Ashes test)
 **Moving away from averages, 100's scored by batsmen to evalualte test batting performance and who the GOAT batsmen are**
 
 ## OVERVIEW
