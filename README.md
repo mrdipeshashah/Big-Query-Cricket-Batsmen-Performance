@@ -1,6 +1,6 @@
 
 # The GOAT INDEX for Modern era test batsmen (from 1970 – to early 2026 incluidng the 5th Ashes test)
-**Moving away from average, 100's scored by batsmen to evalualte test batting performance and who the GOAT batsmen are**
+**Moving away from averages, 100's scored by batsmen to evalualte test batting performance and who the GOAT batsmen are**
 
 ## Project Overview
 This project moves beyond the traditional "Batting Average" to identify the true immortals of modern Test Cricket. By applying a weighted 100-point system across six performance pillars, the model normalizes for era-specific difficulty, quality of bowling faced, and situational pressure.
