@@ -103,7 +103,7 @@ This helps calculate the Not Out Tax - Weighted Batting Average - Actual Batting
 
 ## THE MODELS PHILOSOPHY - IMPACT OVER ACCUMULATION
 
-Most analysis on players will value longetivity, the model created focuses on the contributuon and the impact created 
+Most analysis on players will value longetivity, the model focuses on the contributuon and the impact created 
 
 ---
 
