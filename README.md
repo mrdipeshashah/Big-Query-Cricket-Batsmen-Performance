@@ -117,17 +117,3 @@ The model created is not valuing as high Kallis longer career where Stokes is re
 
 ---
 
-## Tiered Classification System
-
-Players are mapped into tiers based on their **Final GOAT Score**:
-
-* **The Immortal Tier (80.0+):** Outliers who dominated across all six pillars (e.g., Sangakkara, Lara, Smith).
-* **The Elite Benchmark (70.0 - 79.9):** Hall of Fame legends with sustained world-class impact (e.g., Ponting, Kallis).
-* **The Great Tier (<70.0):** Elite professionals who defined their era but lacked the statistical "Peak" of the top tiers.
-
----
-
-## Limitations
-* **Bowling Quality:** While Z-Scores normalize for era-means, they cannot fully capture the "fear factor" of specific batteries like the 90s West Indies pace attack.
-* **Series Leverage:** Current logic weights match-winning innings equally; future iterations (v3.0) will include multipliers for series-clinching performances.
-
