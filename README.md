@@ -78,14 +78,12 @@ The GOAT INDEX was calculated from 6 pillars and each pillar weighted to its imp
 
 ## CASE STUDY - IMPACT V ACCUMULATION
 
-Comparing Ben Stokes and Jacques Kallis (the batsmen) 
+Comparing Ben Stokes and Jacques Kallis (the batsmen) looking at the batting average it shows a huge gulf between the two batsmen. The GOAT INDEX reduces the gap and credits Ben Stokes, but still Jacques Kallis is the greater batsmen of the two.
 
 * Batting Average - 34.86 v 55.37
 * 4th Innings Average - 34 v 44 
 * Weighted Batting Average (WBA) - 34.12 v 50.72
 * GOAT INDEX - 61.38 v 79.56
-
-Comapring Stokes v Kallis and looking at the batting average it shows a huge gulf between the two batsmen. The GOAT INDEX reduces the gap and credits Ben Stokes, but still Jacques Kallis is the greater batsmen of the two.
 
 The model created is not valuing as high Kallis longer career where Stokes is rewarded for his match winning innings that is not truly reflected in his average but shows more fairly in the GOAT INDEX. 
 
