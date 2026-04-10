@@ -3,7 +3,7 @@
 **Moving away from averages, 100's scored by batsmen to evalualte test batting performance and who the GOAT batsmen are**
 
 ## OVERVIEW
-Came across a twitter debate who was the greatest test batsmen. There were some varying opinions in the twitter debate and within the twitter thread with an open data source (https://p.imgci.com/db/DOWNLOAD/100/0163/Ananth_Test_Indices_Primer coming from Anantha Narayanan). using the available base data I decided to do my own analysis, build out visulisation + story telling to find who are the GOAT test batsmens.   
+Came across a twitter debate around test batsmen performance. There were some varying opinions in the twitter debate and within the twitter thread there was a shared open data source (which came from Anantha Narayanan - https://p.imgci.com/db/DOWNLOAD/100/0163/Ananth_Test_Indices_Primer). Using the available base data I decided to do my own analysis, build out visulisation + story telling to find who are the GOAT test batsmens.   
 
 Using a weighted 100-point system across six performance pillars, the model normalizes for era-specific difficulty, quality of bowling faced, and situational pressure.
 
@@ -33,11 +33,12 @@ Summary of the core dimensions and metrics:
 ### Core Performance Metrics
 * **Mat / Inns:** Total matches played and innings batted.
 * **Runs:** Total career runs scored in Test Cricket.
-* **Ave:** The traditional batting average (Runs / Dismissals).
+* **ActualBattingAverage:** The traditional way ot calculating batting average (Runs / Innings).
 * **SR (Strike Rate):** The number of runs scored per 100 balls faced.
 * **100s / 50s:** The frequency of centuries and half-centuries scored.
 * **MOM Awards:** Total "Player of the Match" accolades received.
-* **WBA (Weighted Batting Avg):** Average adjusted for opposition strength and team run contribution.
+* **WBA (Weighted Batting Avg):** Average adjusted for opposition strength and team run contribution (Runs/Weighted Denominator).
+* **NotOutTax:** The delta between - Weighted Batting Average - Actual Batting Average
 * **X-Factor Score:** A composite metric measuring scoring speed and match-winning impact.
 * **Era Dominance (Z-Score):** The number of standard deviations a player sits above their decade's mean.
 * **Consistency Rating:** Performance frequency against ICC Top-5 ranked bowling attacks.
@@ -94,7 +95,9 @@ The WBA logic every 'Not Out' innings is not ignored and a fractional value is a
 * Total Innings - 280
 * Not Outs - 40
 * Weighted Denominator - 262
-* Traditional Average - 13,289 / 262 = 50.72
+* Weighted Average - 13,289 / 262 = 50.72
+
+This helps calculate the Not Out Tax - Weighted Batting Average - Actual Batting Average. This normalize a player's average by treating 'Not Out' innings as fractional events rather than complete survivors."
 
 ---
 
