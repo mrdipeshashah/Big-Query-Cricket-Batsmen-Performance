@@ -5,7 +5,9 @@ WITH metrics AS (
     SAFE_CAST(LEFT(TRIM(f.Career), 4) AS INT64) as start_int,
     SAFE_CAST(RIGHT(TRIM(f.Career), 4) AS INT64) as end_int,
     f.Runs, f.Average,
-    SAFE_CAST(f.Rating AS FLOAT64) as Rating, -- Kept raw rating for reference
+    -- New Manual Field
+    ta.actual_batting_average as Manual_Actual_Avg, 
+    SAFE_CAST(f.Rating AS FLOAT64) as Rating, 
     i.Strike_Rate, i.Century_Frequency, 
     SAFE_CAST(i.MOM_Awards AS FLOAT64) as MOM,
     i.WinsR, i.WinsS,
@@ -21,8 +23,11 @@ WITH metrics AS (
     ON f.Player LIKE CONCAT(w.Player, '%') OR w.Player LIKE CONCAT(f.Player, '%')
   LEFT JOIN `mrdipeshashah.cricket_analysis.stg_consistency_clean` c 
     ON f.Player LIKE CONCAT(c.Player, '%') OR c.Player LIKE CONCAT(f.Player, '%')
+  LEFT JOIN `mrdipeshashah.cricket_analysis.test_averages` ta
+    ON f.Player LIKE CONCAT(ta.Player, '%') OR ta.Player LIKE CONCAT(f.Player, '%')
 ),
 calculated_metrics AS (
+  -- ... (Rest of your CTEs from the previous response) ...
   SELECT *,
     (Average - AVG(Average) OVER(PARTITION BY 
       CASE 
@@ -58,17 +63,14 @@ max_values AS (
   FROM calculated_metrics
 )
 SELECT 
-  r.*, -- Re-adding ALL raw fields (Dates, Year_Int, wba_raw, etc.)
-  -- ERA Z-SCORE
+  r.*, 
   ROUND(r.raw_z, 2) as Era_ZScore,
-  -- NEW ROUNDED POINTS
   ROUND(COALESCE((r.wba_raw / m.m_wba) * 35, 0), 2) as Pts_WBA,
   ROUND(COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 25, 0), 2) as Pts_XFactor,
   ROUND(COALESCE(((r.Cons_Raw + r.Bow_Q_Raw) / m.m_cons) * 20, 0), 2) as Pts_Consistency,
   ROUND(COALESCE((r.IPV_Raw / m.m_ipv) * 15, 0), 2) as Pts_PeakImpact,
   ROUND(COALESCE((r.raw_z / m.m_z) * 10, 0), 2) as Pts_EraDominance,
   ROUND(COALESCE((r.Runs / m.m_runs) * 5, 0), 2) as Pts_Career,
-  -- FINAL GOAT SCORE
   ROUND(
     COALESCE((r.wba_raw / m.m_wba) * 35, 0) + 
     COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 25, 0) + 
