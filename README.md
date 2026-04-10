@@ -76,6 +76,28 @@ The GOAT INDEX was calculated from 6 pillars and each pillar weighted to its imp
 
 ---
 
+## DEEP DIVE INTO WEIGHTED BATTING AVERAGE (WBA) - CASE STUDY JACQUES KALLIS 
+
+The Raw Data - Traditional Stats 
+
+Averages are calculated by ignoring 'Not Out' 
+
+* Total Career Runs - 13,289
+* Total Innings - 280
+* Not Outs - 40
+* Traditional Denominator - 280 - 40 = 240
+* Traditional Average - 13,289 / 240 = 55.37
+
+The WBA logic every 'Not Out' innings is not ignored and a fractional value is added 
+
+* Total Career Runs - 13,289
+* Total Innings - 280
+* Not Outs - 40
+* Weighted Denominator - 262
+* Traditional Average - 13,289 / 262 = 50.72
+
+---
+
 ## THE MODELS PHILOSOPHY - IMPACT OVER ACCUMULATION
 
 Most analysis on players will value longetivity, the model created focuses on the contributuon and the impact created 
