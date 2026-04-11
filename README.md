@@ -14,7 +14,6 @@ Using a weighted 100-point system across six performance pillars, the model norm
 * **Data Warehouse:** Cleaned data hosted in **Google BigQuery** allowing to add in aggregations of data (to segment in the visulisation) and addtional calculations.
 * **Visualization:** Story telling and analysis built in **Looker Studio**.
 
----
 
 ## DIMENSIONS & METRICS REFERENCE
 
@@ -42,8 +41,6 @@ Summary of the core dimensions and metrics:
 * **Consistency Rating:** Performance frequency against ICC Top-5 ranked bowling attacks.
 * **Impact Profile (IPV):** A weighted score for 4th innings, series-deciders, and high-pressure chases.
 * **Bowling Quality Resistance:** A metric measuring runs scored specifically against elite individual bowlers.
-
----
 
 ## THE 100 POINT MODEL + CALCULATIONS = GOAT INDEX
 
@@ -73,8 +70,6 @@ The GOAT INDEX was calculated from 6 pillars and each pillar weighted to its imp
 * **Formula:** `(Total_Runs / 15921) * 5.0`
 * **Goal:** A "marathon" reward for maintaining elite standards over a long career.
 
----
-
 ## DEEP DIVE INTO WEIGHTED BATTING AVERAGE (WBA) - CASE STUDY JACQUES KALLIS 
 
 The Raw Data - Traditional Stats 
@@ -97,13 +92,9 @@ The WBA logic every 'Not Out' innings is not ignored and a fractional value is a
 
 This helps calculate the Not Out Tax - Weighted Batting Average - Actual Batting Average. This normalize a player's average by treating 'Not Out' innings as fractional events rather than complete survivors."
 
----
-
 ## THE MODELS PHILOSOPHY - IMPACT OVER ACCUMULATION
 
 Most analysis on players will value longetivity, the model focuses on the contributuon and the impact created 
-
----
 
 ## CASE STUDY - IMPACT V ACCUMULATION - BEN STOKES V JACQUES KALLIS
 
@@ -116,5 +107,4 @@ Comparing Ben Stokes and Jacques Kallis (the batsmen) looking at the batting ave
 
 The model created is not valuing as high Kallis longer career where Stokes is rewarded for his match winning innings that is not truly reflected in his average but shows more fairly in the GOAT INDEX. 
 
----
 
