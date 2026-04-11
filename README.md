@@ -7,6 +7,10 @@ Came across a twitter debate around test batsmen performance. There were some va
 
 Using a weighted 100-point system across six performance pillars, the model normalizes for era-specific difficulty, quality of bowling faced, and situational pressure.
 
+## LOOKER STUDIO DASHBOARD 
+
+https://lookerstudio.google.com/reporting/b54e0997-5cc7-4865-9fa5-9a37f50b1f7e
+
 ## DATA PIPELINE & ARCHITECTURE
 
 * **Ingestion:** Raw career metrics gathered via **Notepad** > **Excel** > **Google Sheets**.
