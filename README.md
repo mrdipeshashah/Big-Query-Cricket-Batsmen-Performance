@@ -34,7 +34,7 @@ Summary of the core dimensions and metrics:
 ### Core Performance Metrics
 * **Mat / Inns:** Total matches played and innings batted.
 * **Runs:** Total career runs scored in Test Cricket.
-* **ActualBattingAverage:** The traditional way ot calculating batting average (Runs / Innings).
+* **Actual Batting Average:** The traditional way ot calculating batting average (Runs / Innings).
 * **SR (Strike Rate):** The number of runs scored per 100 balls faced.
 * **100s / 50s:** The frequency of centuries and half-centuries scored.
 * **MOM Awards:** Total "Player of the Match" accolades received.
