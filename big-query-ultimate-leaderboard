@@ -16,14 +16,14 @@ WITH metrics AS (
     COALESCE(c.Cons_Raw, 0) as Cons_Raw, 
     COALESCE(c.Bow_Q_Raw, 0) as Bow_Q_Raw, 
     COALESCE(c.IPV_Raw, 0) as IPV_Raw
-  FROM `mrdipeshashah.cricket_analysis.full_career_history` f
-  LEFT JOIN `mrdipeshashah.cricket_analysis.impact_metrics` i 
+  FROM `projectid.cricket_analysis.full_career_history` f
+  LEFT JOIN `projectid.cricket_analysis.impact_metrics` i 
     ON f.Player LIKE CONCAT(i.Player, '%') OR i.Player LIKE CONCAT(f.Player, '%')
-  LEFT JOIN `mrdipeshashah.cricket_analysis.weighted_performance` w 
+  LEFT JOIN `projectid.cricket_analysis.weighted_performance` w 
     ON f.Player LIKE CONCAT(w.Player, '%') OR w.Player LIKE CONCAT(f.Player, '%')
-  LEFT JOIN `mrdipeshashah.cricket_analysis.stg_consistency_clean` c 
+  LEFT JOIN `projectid.cricket_analysis.stg_consistency_clean` c 
     ON f.Player LIKE CONCAT(c.Player, '%') OR c.Player LIKE CONCAT(f.Player, '%')
-  LEFT JOIN `mrdipeshashah.cricket_analysis.test_averages` ta
+  LEFT JOIN `projectid.cricket_analysis.test_averages` ta
     ON f.Player LIKE CONCAT(ta.Player, '%') OR ta.Player LIKE CONCAT(f.Player, '%')
 ),
 calculated_metrics AS (
