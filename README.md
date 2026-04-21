@@ -48,6 +48,8 @@ Summary of the core dimensions and metrics:
 
 ## THE 100 POINT MODEL + CALCULATIONS = GOAT INDEX
 
+Google Doc - https://docs.google.com/document/d/1cUR987UmY0--9syn5hxvyI_08NLR2GwzTnQjT-_JYxE/edit?usp=sharing
+
 The GOAT INDEX was calculated from 6 pillars and each pillar weighted to its importance = 100
 
 ### 1. Opposition & Team Impact (35.0 Pts)
