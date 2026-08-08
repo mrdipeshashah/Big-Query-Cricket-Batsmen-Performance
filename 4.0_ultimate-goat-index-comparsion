@@ -1,0 +1,49 @@
+WITH v1_ranked AS (
+  SELECT 
+    Player,
+    Country,
+    Runs,
+    Average,
+    Final_GOAT_Score AS score_v1,
+    ROW_NUMBER() OVER(ORDER BY Final_GOAT_Score DESC) AS rank_v1
+  FROM `mrdipeshashah.cricket_analysis.goat_index_v1`
+),
+
+v2_ranked AS (
+  SELECT 
+    Player,
+    Anchor_Era,
+    Final_GOAT_Score_V2 AS score_v2,
+    ROW_NUMBER() OVER(ORDER BY Final_GOAT_Score_V2 DESC) AS rank_v2
+  FROM `mrdipeshashah.cricket_analysis.goat_index_v2`
+)
+
+SELECT 
+  v1.Player,
+  v1.Country,
+  v2.Anchor_Era,
+  v1.Runs,
+  v1.Average,
+  
+  -- Scores
+  ROUND(v1.score_v1, 2) AS score_v1,
+  ROUND(v2.score_v2, 2) AS score_v2,
+  ROUND(v2.score_v2 - v1.score_v1, 2) AS score_delta,
+  
+  -- Ranks
+  v1.rank_v1,
+  v2.rank_v2,
+  
+  -- Rank Movement: Positive = Climbed/Gained, Negative = Dropped
+  (CAST(v1.rank_v1 AS INT64) - CAST(v2.rank_v2 AS INT64)) AS rank_positions_gained,
+  
+  -- Movement Label for Easy Filtering in Looker Studio
+  CASE 
+    WHEN (CAST(v1.rank_v1 AS INT64) - CAST(v2.rank_v2 AS INT64)) > 0 THEN 'Climber ⬆️'
+    WHEN (CAST(v1.rank_v1 AS INT64) - CAST(v2.rank_v2 AS INT64)) < 0 THEN 'Faller ⬇️'
+    ELSE 'Unchanged ➖'
+  END AS movement_category
+
+FROM v1_ranked v1
+INNER JOIN v2_ranked v2 ON v1.Player = v2.Player
+ORDER BY v2.rank_v2 ASC;
