@@ -6,7 +6,7 @@ WITH v1_ranked AS (
     Average,
     Final_GOAT_Score AS score_v1,
     ROW_NUMBER() OVER(ORDER BY Final_GOAT_Score DESC) AS rank_v1
-  FROM `mrdipeshashah.cricket_analysis.goat_index_v1`
+  FROM `projectid.cricket.goat_index_v1`
 ),
 
 v2_ranked AS (
@@ -15,7 +15,7 @@ v2_ranked AS (
     Anchor_Era,
     Final_GOAT_Score_V2 AS score_v2,
     ROW_NUMBER() OVER(ORDER BY Final_GOAT_Score_V2 DESC) AS rank_v2
-  FROM `mrdipeshashah.cricket_analysis.goat_index_v2`
+  FROM `projectid.cricket.goat_index_v2`
 )
 
 SELECT 
