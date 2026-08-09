@@ -163,6 +163,7 @@ While global scores compressed across the board, relative rank shifts revealed h
 * **Allan Border (Volume vs. Peak Impact):** Illustrates the impact of **removing the 5-point Longevity pillar**. Border's high career accumulation (11,174 runs) gave him a volume cushion in V1. In V2, stripping raw volume rewards caused his 45.68 average to drop him behind pure peak-impact players like **Everton Weekes** (who surged into the Top 10 with a 56.77 average).
 * **NS Sidhu (The Relative Resilient Climber):** Shows how **Rankings are Relative while Scores are Absolute**. Sidhu lost 5.64 score points, yet **climbed 24 spots** (from #140 to #116). Because his 80s/90s era profile held up better than the global average deflation (-8.0+), he surpassed modern competitors whose scores dropped much harder.
 * **Ian Healy (Role Baseline Penalization):** Illustrates V2’s stricter handling of non-specialist top-order batters. Hybrid roles lost an average of 10–12 points, pushing pure top-order runs to the top of the leaderboard.
+* **IVA Richards (The Teammate Context & Peak Ceiling Case):** Sits at **#19 in V2** (Score: 69.95). While Viv maxes out Pillar 2 (Match-Winner / Strike Rate), his overall score is constrained by two model factors: a sub-50 career average (48.59) and playing in an all-conquering 1980s West Indies team. Pillar 1 (35 Pts) rewards players carrying weaker lineups (like Brian Lara at #3), meaning stacked team contexts naturally suppress individual carrying metrics.
 
 ---
 
