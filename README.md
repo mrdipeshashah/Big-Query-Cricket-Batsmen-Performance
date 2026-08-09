@@ -130,7 +130,7 @@ Following initial findings in V1, the model underwent a comprehensive **V2 Calib
 
 Google Doc - https://docs.google.com/document/d/1cUR987UmY0--9syn5hxvyI_08NLR2GwzTnQjT-_JYxE/edit?usp=sharing
 
-The GOAT INDEX was calculated from 6 pillars and each pillar weighted to its importance = 100
+The GOAT INDEX was calculated from 5 pillars and each pillar weighted to its importance = 100
 
 ### 1. Opposition & Team Impact (35.0 Pts)
 ### 2. Match-Winner Score (20.0 Pts)
