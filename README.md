@@ -140,6 +140,11 @@ The GOAT INDEX was calculated from 5 pillars and each pillar weighted to its imp
 
 Longevity & Volume was removed from v2 as a scoring pillar. This ensures "Impact Over Accumulation." removing raw volume rewards ensures the model strictly measures peak quality, dominance over peers, and clutch performance rather than just career duration.
 
+The key changes from v1 v v2: 
+
+### 1. Situational Pressure Value: Increased from 10.0 Pts $\rightarrow$ 15.0 Pts (+5.0 Pts)
+### 2. Era Dominance Index: Increased from 5.0 Pts $\rightarrow$ 10.0 Pts (+5.0 Pts)
+
 ## MODEL COMPARISON: V1 vs. V2 IN ACTION
 
 While global scores compressed across the board, relative rank shifts revealed how different player profiles responded to the V2 logic:
