@@ -113,4 +113,42 @@ Comparing Ben Stokes and Jacques Kallis (the batsmen) looking at the batting ave
 
 The model created is not valuing as high Kallis longer career where Stokes is rewarded for his match winning innings that is not truly reflected in his average but shows more fairly in the GOAT INDEX. 
 
+---
+
+## MODEL EVOLUTION & V2 CALIBRATION
+
+Following initial findings in V1, the model underwent a comprehensive **V2 Calibration** to refine baseline scoring, tighten global inflation, and address specialized role interactions. 
+
+### Key Structural Updates in V2:
+1. **Universal Deflation Alignment:** Applied stricter global ceiling normalization, resulting in an average system-wide compression of **~8.0 points/runs**. **100% of players** experienced a negative absolute score delta, establishing a tougher "Immortal Status" benchmark threshold (75.0+ pts).
+2. **Era Normalization Refinement:** Recalibrated era Z-Score weighting. Modern eras (2020s) experienced higher compression (-8.95 avg delta), whereas resilient historical eras like the 1980s (-7.20 avg delta) gained relative ground.
+3. **Role Discipline Isolation:** Separated primary top-order batting contributions from secondary skill baselines (wicket-keeping and lower-order all-rounder workloads), resulting in heavier relative score drops (-10 to -12 pts) for hybrid roles.
+
+---
+
+## MODEL COMPARISON: V1 vs. V2 IN ACTION
+
+While global scores compressed across the board, relative rank shifts revealed how different player profiles responded to the V2 logic:
+
+| Metric / Player | Jacques Kallis (Anchor / Top Tier) | Navjot Singh Sidhu (Top Climber) | Ian Healy (Hybrid / Keeper) |
+| :--- | :---: | :---: | :---: |
+| **Era** | 1990s / 2000s | 1980s / 1990s | 1980s / 1990s |
+| **V1 Score $\rightarrow$ V2 Score** | $79.56 \rightarrow 74.44$ | $61.20 \rightarrow 55.56$ | $58.10 \rightarrow 46.10$ |
+| **Absolute Score Delta** | **-5.12** | **-5.64** | **-12.00** |
+| **V1 Rank $\rightarrow$ V2 Rank** | **#8 $\rightarrow$ #9** (-1) | **#140 $\rightarrow$ #116** (+24) | **#110 $\rightarrow$ #142** (-32) |
+| **Calibration Insight** | **Top-Tier Elite Stability:** Maintained top-10 tier retention despite a 5.12-point compression. | **Era Resilience Jump:** Milder drop relative to the dataset allowed a huge +24 rank surge. | **Specialist Discipline Adjustment:** Heavy penalty for lower-order keeping baseline. |
+
+### Case Study Insights:
+
+* **Jacques Kallis (Stability At The Top):** Demonstrates **Tier Retention Integrity**. Despite losing 5.12 points in raw score under V2 tightening, Kallis only slipped 1 rank (from #8 to #9). The elite tier remained 90% stable.
+* **NS Sidhu (The Relative Resilient Climber):** Shows how **Rankings are Relative while Scores are Absolute**. Sidhu lost 5.64 score points, yet **climbed 24 spots** (from #140 to #116). Because his 80s/90s era profile held up better than the global average deflation (-8.0+), he surpassed modern competitors whose scores dropped much harder.
+* **Ian Healy (Role Baseline Penalization):** Illustrates V2’s stricter handling of non-specialist top-order batters. Hybrid roles lost an average of 10–12 points, pushing pure top-order runs to the top of the leaderboard.
+
+---
+
+## MODEL GOVERNANCE & VALIDATION SUMMARY
+
+* **Tier Integrity:** 9 out of the Top 10 players maintained their Top 10 status in V2, proving the model recalibrated absolute values without creating arbitrary noise at the top.
+* **Core Takeaway:** Under V2, **winning meant losing the fewest points**. Rank surges were driven by score resilience against global deflation.
+
 
