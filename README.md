@@ -126,6 +126,20 @@ Following initial findings in V1, the model underwent a comprehensive **V2 Calib
 
 ---
 
+## THE 100 POINT MODEL + CALCULATIONS = GOAT INDEX v2
+
+Google Doc - https://docs.google.com/document/d/1cUR987UmY0--9syn5hxvyI_08NLR2GwzTnQjT-_JYxE/edit?usp=sharing
+
+The GOAT INDEX was calculated from 6 pillars and each pillar weighted to its importance = 100
+
+### 1. Opposition & Team Impact (35.0 Pts)
+### 2. Match-Winner Score (20.0 Pts)
+### 3. Elite Attack Resistance (20.0 Pts)
+### 4. Situational Pressure Value (15.0 Pts)
+### 5. Era Dominance (10.0 Pts)
+
+Longevity & Volume was removed from v2 as a scoring pillar. This ensures "Impact Over Accumulation." removing raw volume rewards ensures the model strictly measures peak quality, dominance over peers, and clutch performance rather than just career duration.
+
 ## MODEL COMPARISON: V1 vs. V2 IN ACTION
 
 While global scores compressed across the board, relative rank shifts revealed how different player profiles responded to the V2 logic:
