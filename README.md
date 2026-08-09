@@ -145,21 +145,22 @@ The key changes from v1 v v2:
 ### 1. Situational Pressure Value: Increased from 10.0 Pts $\rightarrow$ 15.0 Pts (+5.0 Pts)
 ### 2. Era Dominance Index: Increased from 5.0 Pts $\rightarrow$ 10.0 Pts (+5.0 Pts)
 
-## MODEL COMPARISON: V1 vs. V2 IN ACTION
+## MODEL COMPARISON: V1 vs V2 IN ACTION
 
 While global scores compressed across the board, relative rank shifts revealed how different player profiles responded to the V2 logic:
 
-| Metric / Player | Jacques Kallis (Anchor / Top Tier) | Navjot Singh Sidhu (Top Climber) | Ian Healy (Hybrid / Keeper) |
-| :--- | :---: | :---: | :---: |
-| **Era** | 1990s / 2000s | 1980s / 1990s | 1980s / 1990s |
-| **V1 Score $\rightarrow$ V2 Score** | $79.56 \rightarrow 74.44$ | $61.20 \rightarrow 55.56$ | $58.10 \rightarrow 46.10$ |
-| **Absolute Score Delta** | **-5.12** | **-5.64** | **-12.00** |
-| **V1 Rank $\rightarrow$ V2 Rank** | **#8 $\rightarrow$ #9** (-1) | **#140 $\rightarrow$ #116** (+24) | **#110 $\rightarrow$ #142** (-32) |
-| **Calibration Insight** | **Top-Tier Elite Stability:** Maintained top-10 tier retention despite a 5.12-point compression. | **Era Resilience Jump:** Milder drop relative to the dataset allowed a huge +24 rank surge. | **Specialist Discipline Adjustment:** Heavy penalty for lower-order keeping baseline. |
+| Metric / Player | Jacques Kallis (Top Tier Anchor) | Allan Border (Volume vs Impact) | Navjot Singh Sidhu (Top Climber) | Ian Healy (Hybrid / Keeper) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Era** | 1990s / 2000s | 1970s / 1980s | 1980s / 1990s | 1980s / 1990s |
+| **V1 Score -> V2 Score** | 79.56 -> 74.44 | 78.07 -> 71.30 | 61.20 -> 55.56 | 58.10 -> 46.10 |
+| **Absolute Score Delta** | **-5.12** | **-6.77** | **-5.64** | **-12.00** |
+| **V1 Rank -> V2 Rank** | **#8 -> #9** (-1) | **#11 -> #13** (-2) | **#140 -> #116** (+24) | **#110 -> #142** (-32) |
+| **Calibration Insight** | **Top-Tier Elite Stability:** Maintained top-10 tier retention despite a 5.12-point compression. | **Removal of Volume Cushion:** Lost rank due to removal of raw run accumulation rewards (11k+ runs). | **Era Resilience Jump:** Milder drop relative to the dataset allowed a huge +24 rank surge. | **Specialist Discipline Adjustment:** Heavy penalty for lower-order keeping baseline. |
 
 ### Case Study Insights:
 
-* **Jacques Kallis (Stability At The Top):** Demonstrates **Tier Retention Integrity**. Despite losing 5.12 points in raw score under V2 tightening, Kallis only slipped 1 rank (from #8 to #9). The elite tier remained 90% stable.
+* **Jacques Kallis (Stability At The Top):** Demonstrates **Tier Retention Integrity**. Despite losing 5.12 points in raw score under V2 tightening, Kallis only slipped 1 rank (from #8 to #9). The elite tier remained 90% stable overall.
+* **Allan Border (Volume vs. Peak Impact):** Illustrates the impact of **removing the 5-point Longevity pillar**. Border's high career accumulation (11,174 runs) gave him a volume cushion in V1. In V2, stripping raw volume rewards caused his 45.68 average to drop him behind pure peak-impact players like **Everton Weekes** (who surged into the Top 10 with a 56.77 average).
 * **NS Sidhu (The Relative Resilient Climber):** Shows how **Rankings are Relative while Scores are Absolute**. Sidhu lost 5.64 score points, yet **climbed 24 spots** (from #140 to #116). Because his 80s/90s era profile held up better than the global average deflation (-8.0+), he surpassed modern competitors whose scores dropped much harder.
 * **Ian Healy (Role Baseline Penalization):** Illustrates V2’s stricter handling of non-specialist top-order batters. Hybrid roles lost an average of 10–12 points, pushing pure top-order runs to the top of the leaderboard.
 
