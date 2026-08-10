@@ -132,18 +132,30 @@ Google Doc - https://docs.google.com/document/d/1cUR987UmY0--9syn5hxvyI_08NLR2Gw
 
 The GOAT INDEX was calculated from 5 pillars and each pillar weighted to its importance = 100
 
-### 1. Opposition & Team Impact (35.0 Pts)
-### 2. Match-Winner Score (20.0 Pts)
-### 3. Elite Attack Resistance (20.0 Pts)
-### 4. Situational Pressure Value (15.0 Pts)
-### 5. Era Dominance (10.0 Pts)
+### 1. Opposition & Team Impact (30.0 Pts) — [DOWNGRADED from 35.0]
+* **The Goal:** Measures "Carrying the Team" by rewarding players who dominated regardless of their teammates' failures or the era's bowling difficulty. Identifies true Value Over Replacement Player (VORP). Trimmed by 5 points in V2 to balance era relativity.
 
-Longevity & Volume was removed from v2 as a scoring pillar. This ensures "Impact Over Accumulation." removing raw volume rewards ensures the model strictly measures peak quality, dominance over peers, and clutch performance rather than just career duration.
+### 2. Match-Winner Score (25.0 Pts) — [KEPT at 25.0]
+* **The Goal:** Quantifies the "X-Factor"—the ability to take the match away from the opposition at high speed and convert matches into wins.
+
+### 3. Elite Attack Resistance (20.0 Pts) — [KEPT at 20.0]
+* **The Goal:** Filters out "cheap runs" by isolating performance frequency specifically against ICC Top-5 ranked bowling attacks and elite individual bowlers.
+
+### 4. Era Dominance Index (15.0 Pts) — [UPGRADED from 5.0]
+* **The Goal:** The biggest shift in V2! Tripled in weight to prioritize relative peer dominance. Evaluates standard deviations above decade peers using Z-Scores, locked to a player's primary debut era to isolate peak performance.
+
+### 5. Situational Pressure Value (10.0 Pts) — [DOWNGRADED from 15.0]
+* **The Goal:** Rewards "Clutch" performances in high-stakes environments (4th innings chases, series deciders, and stopping team collapses).
+
+### 6. Longevity & Volume (5.0 Pts) — [KEPT at 5.0]
+* **The Goal:** A minimal career baseline reward that prevents pure run volume from overshadowing peak quality and era dominance.
 
 The key changes from v1 v v2: 
 
 ### 1. Situational Pressure Value: Increased from 10.0 Pts $\rightarrow$ 15.0 Pts (+5.0 Pts)
 ### 2. Era Dominance Index: Increased from 5.0 Pts $\rightarrow$ 10.0 Pts (+5.0 Pts)
+
+These changes ensures "Impact Over Accumulation." removing raw volume rewards ensures the model strictly measures peak quality, dominance over peers, and clutch performance rather than just career duration.
 
 ## MODEL COMPARISON: V1 vs V2 IN ACTION
 
