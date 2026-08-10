@@ -132,8 +132,8 @@ Google Doc - https://docs.google.com/document/d/1cUR987UmY0--9syn5hxvyI_08NLR2Gw
 
 The GOAT INDEX was calculated from 5 pillars and each pillar weighted to its importance = 100
 
-### 1. Opposition & Team Impact (30.0 Pts) — [DOWNGRADED from 35.0]
-* **The Goal:** Measures "Carrying the Team" by rewarding players who dominated regardless of their teammates' failures or the era's bowling difficulty. Identifies true Value Over Replacement Player (VORP). Trimmed by 5 points in V2 to balance era relativity.
+### 1. Opposition & Team Impact (25.0 Pts) — [REDUCED from 35.0]
+* **The Goal:** Measures "Carrying the Team" by rewarding players who dominated regardless of their teammates' failures or the era's bowling difficulty. Reduced by 10 points in V2 to balance relative peer weighting and prevent team context from over-dominating peer relativity.
 
 ### 2. Match-Winner Score (25.0 Pts) — [KEPT at 25.0]
 * **The Goal:** Quantifies the "X-Factor"—the ability to take the match away from the opposition at high speed and convert matches into wins.
@@ -142,13 +142,13 @@ The GOAT INDEX was calculated from 5 pillars and each pillar weighted to its imp
 * **The Goal:** Filters out "cheap runs" by isolating performance frequency specifically against ICC Top-5 ranked bowling attacks and elite individual bowlers.
 
 ### 4. Era Dominance Index (15.0 Pts) — [UPGRADED from 5.0]
-* **The Goal:** The biggest shift in V2! Tripled in weight to prioritize relative peer dominance. Evaluates standard deviations above decade peers using Z-Scores, locked to a player's primary debut era to isolate peak performance.
+* **The Goal:** The primary shift in V2! Tripled in weight to prioritize relative peer dominance over simple volume. Evaluates standard deviations above decade peers using Z-Scores, locked to a player's primary debut era to isolate peak performance.
 
-### 5. Situational Pressure Value (10.0 Pts) — [DOWNGRADED from 15.0]
+### 5. Situational Pressure Value (10.0 Pts) — [REDUCED from 15.0]
 * **The Goal:** Rewards "Clutch" performances in high-stakes environments (4th innings chases, series deciders, and stopping team collapses).
 
 ### 6. Longevity & Volume (5.0 Pts) — [KEPT at 5.0]
-* **The Goal:** A minimal career baseline reward that prevents pure run volume from overshadowing peak quality and era dominance.
+* **The Goal:** A minimal career baseline reward that prevents pure run accumulation from overshadowing peak quality and era dominance.
 
 The key changes from v1 v v2: 
 
