@@ -15,14 +15,14 @@ WITH metrics AS (
     COALESCE(c.Cons_Raw, 0) as Cons_Raw, 
     COALESCE(c.Bow_Q_Raw, 0) as Bow_Q_Raw, 
     COALESCE(c.IPV_Raw, 0) as IPV_Raw
-  FROM `projectid.cricket_analysis.full_career_history` f
-  LEFT JOIN `projectid.cricket_analysis.impact_metrics` i 
+  FROM `mrdipeshashah.cricket_analysis.full_career_history` f
+  LEFT JOIN `mrdipeshashah.cricket_analysis.impact_metrics` i 
     ON f.Player LIKE CONCAT(i.Player, '%') OR i.Player LIKE CONCAT(f.Player, '%')
-  LEFT JOIN `projectid.cricket_analysis.weighted_performance` w 
+  LEFT JOIN `mrdipeshashah.cricket_analysis.weighted_performance` w 
     ON f.Player LIKE CONCAT(w.Player, '%') OR w.Player LIKE CONCAT(f.Player, '%')
-  LEFT JOIN `projectid.cricket_analysis.stg_consistency_clean` c 
+  LEFT JOIN `mrdipeshashah.cricket_analysis.stg_consistency_clean` c 
     ON f.Player LIKE CONCAT(c.Player, '%') OR c.Player LIKE CONCAT(f.Player, '%')
-  LEFT JOIN `projectid.cricket_analysis.test_averages` ta
+  LEFT JOIN `mrdipeshashah.cricket_analysis.test_averages` ta
     ON f.Player LIKE CONCAT(ta.Player, '%') OR ta.Player LIKE CONCAT(f.Player, '%')
 ),
 
@@ -75,7 +75,7 @@ SELECT
   ROUND(r.raw_z, 2) as Era_ZScore,
   
   -- V2.0 RE-WEIGHTED PILLARS (Total: 100 Points)
-  ROUND(COALESCE((r.wba_raw / m.m_wba) * 30, 0), 2) as Pts_WBA,                     -- Reduced to 30
+  ROUND(COALESCE((r.wba_raw / m.m_wba) * 25, 0), 2) as Pts_WBA,                     -- Reduced to 25
   ROUND(COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 25, 0), 2) as Pts_XFactor, -- Kept at 25
   ROUND(COALESCE(((r.Cons_Raw + r.Bow_Q_Raw) / m.m_cons) * 20, 0), 2) as Pts_Consistency, -- Kept at 20
   ROUND(COALESCE((r.IPV_Raw / m.m_ipv) * 10, 0), 2) as Pts_PeakImpact,            -- Reduced to 10
@@ -84,7 +84,7 @@ SELECT
   
   -- V2 Final Composite Score Calculation
   ROUND(
-    COALESCE((r.wba_raw / m.m_wba) * 30, 0) + 
+    COALESCE((r.wba_raw / m.m_wba) * 25, 0) + 
     COALESCE((( (r.Strike_Rate * 0.1) + (r.Century_Frequency * 5) + (r.MOM_Awards * 2) ) / NULLIF(m.m_x, 0)) * 25, 0) + 
     COALESCE(((r.Cons_Raw + r.Bow_Q_Raw) / m.m_cons) * 20, 0) + 
     COALESCE((r.IPV_Raw / m.m_ipv) * 10, 0) + 
