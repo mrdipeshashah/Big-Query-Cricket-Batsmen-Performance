@@ -167,7 +167,7 @@ With **V2 removing manual overrides to focus strictly on structural re-weighting
 | **V1 Score -> V2 Score** | 79.56 -> 69.65 | 78.07 -> 67.02 | 68.10 -> 58.36 | 77.03 -> 65.35 |
 | **Absolute Score Delta** | **-9.91** | **-11.05** | **-9.74** | **-11.68** |
 | **V1 Rank -> V2 Rank** | **#7 -> #7** (0) | **#9 -> #9** (0) | **#107 -> #89** (+18) | **#11 -> #17** (-6) |
-| **Calibration Insight** | **Top-Tier Elite Stability:** Maintained #7 spot despite global baseline compression. | **Structural Holding Power:** Retained #9 spot; elite rate metrics balanced volume loss. | **Efficiency Surge:** Less severe score drop relative to global average enabled an +18 rank surge. | **Removal of Volume Cushion:** Dropped 6 spots as V1's 35% run accumulation reward was removed. |
+| **Insight** | **Top-Tier Elite Stability:** Maintained #7 spot despite global baseline compression. | **Structural Holding Power:** Retained #9 spot; elite rate metrics balanced volume loss. | **Efficiency Surge:** Less severe score drop relative to global average enabled an +18 rank surge. | **Removal of Volume Cushion:** Dropped 6 spots as V1's 35% run accumulation reward was removed. |
 
 ---
 
