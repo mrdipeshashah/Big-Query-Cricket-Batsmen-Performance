@@ -30,15 +30,6 @@ WITH metrics AS (
 metrics_with_anchor_era AS (
   SELECT *,
     CASE 
-      -- Specific Anchor Overrides for multi-decade legends
-      WHEN Player LIKE '%Tendulkar%' THEN '90s'
-      WHEN Player LIKE '%Ponting%' THEN '00s'
-      WHEN Player LIKE '%Kallis%' THEN '00s'
-      WHEN Player LIKE '%Dravid%' THEN '00s'
-      WHEN Player LIKE '%Sangakkara%' THEN '00s'
-      WHEN Player LIKE '%S Waugh%' OR Player LIKE '%Steve Waugh%' THEN '90s'
-      WHEN Player LIKE '%Lara%' THEN '90s'
-      
       -- Default Decade Bucketing based on career start
       WHEN start_int < 1970 THEN 'Pre-1970'
       WHEN start_int BETWEEN 1970 AND 1979 THEN '70s'
