@@ -159,29 +159,30 @@ These changes ensures "Impact Over Accumulation." removing raw volume rewards en
 
 ## MODEL COMPARISON: V1 vs V2 IN ACTION
 
-While global scores compressed across the board, relative rank shifts revealed how different player profiles responded to the V2 logic:
+With **V2 removing manual overrides to focus strictly on structural re-weighting** (capping longevity at 5% and re-balancing the 100-point total score across 25/25/20/15/10/5), global scores compressed uniformly across the dataset. However, relative rank shifts reveal how different player profiles responded once pure volume inflation was removed:
 
-| Metric / Player | Jacques Kallis (Top Tier Anchor) | Allan Border (Volume vs Impact) | Navjot Singh Sidhu (Top Climber) | Ian Healy (Hybrid / Keeper) |
+| Metric / Player | Jacques Kallis (Top Tier Anchor) | Allan Border (Volume vs Impact) | SM Katich (Peak Efficiency Climber) | S Chanderpaul (Accumulator Tax) |
 | :--- | :---: | :---: | :---: | :---: |
-| **Era** | 1990s / 2000s | 1970s / 1980s | 1980s / 1990s | 1980s / 1990s |
-| **V1 Score -> V2 Score** | 79.56 -> 74.44 | 78.07 -> 71.30 | 61.20 -> 55.56 | 58.10 -> 46.10 |
-| **Absolute Score Delta** | **-5.12** | **-6.77** | **-5.64** | **-12.00** |
-| **V1 Rank -> V2 Rank** | **#8 -> #9** (-1) | **#11 -> #13** (-2) | **#140 -> #116** (+24) | **#110 -> #142** (-32) |
-| **Calibration Insight** | **Top-Tier Elite Stability:** Maintained top-10 tier retention despite a 5.12-point compression. | **Removal of Volume Cushion:** Lost rank due to removal of raw run accumulation rewards (11k+ runs). | **Era Resilience Jump:** Milder drop relative to the dataset allowed a huge +24 rank surge. | **Specialist Discipline Adjustment:** Heavy penalty for lower-order keeping baseline. |
+| **Anchor Era** | 1990s | 1970s | 2000s | 1990s |
+| **V1 Score -> V2 Score** | 79.56 -> 69.65 | 78.07 -> 67.02 | 68.10 -> 58.36 | 77.03 -> 65.35 |
+| **Absolute Score Delta** | **-9.91** | **-11.05** | **-9.74** | **-11.68** |
+| **V1 Rank -> V2 Rank** | **#7 -> #7** (0) | **#9 -> #9** (0) | **#107 -> #89** (+18) | **#11 -> #17** (-6) |
+| **Calibration Insight** | **Top-Tier Elite Stability:** Maintained #7 spot despite global baseline compression. | **Structural Holding Power:** Retained #9 spot; elite rate metrics balanced volume loss. | **Efficiency Surge:** Less severe score drop relative to global average enabled an +18 rank surge. | **Removal of Volume Cushion:** Dropped 6 spots as V1's 35% run accumulation reward was removed. |
+
+---
 
 ### Case Study Insights:
 
-* **Jacques Kallis (Stability At The Top):** Demonstrates **Tier Retention Integrity**. Despite losing 5.12 points in raw score under V2 tightening, Kallis only slipped 1 rank (from #8 to #9). The elite tier remained 90% stable overall.
-* **Allan Border (Volume vs. Peak Impact):** Illustrates the impact of **removing the 5-point Longevity pillar**. Border's high career accumulation (11,174 runs) gave him a volume cushion in V1. In V2, stripping raw volume rewards caused his 45.68 average to drop him behind pure peak-impact players like **Everton Weekes** (who surged into the Top 10 with a 56.77 average).
-* **NS Sidhu (The Relative Resilient Climber):** Shows how **Rankings are Relative while Scores are Absolute**. Sidhu lost 5.64 score points, yet **climbed 24 spots** (from #140 to #116). Because his 80s/90s era profile held up better than the global average deflation (-8.0+), he surpassed modern competitors whose scores dropped much harder.
-* **Ian Healy (Role Baseline Penalization):** Illustrates V2’s stricter handling of non-specialist top-order batters. Hybrid roles lost an average of 10–12 points, pushing pure top-order runs to the top of the leaderboard.
-* **IVA Richards (The Teammate Context & Peak Ceiling Case):** Sits at **#19 in V2** (Score: 69.95). While Viv maxes out Pillar 2 (Match-Winner / Strike Rate), his overall score is constrained by two model factors: a sub-50 career average (48.59) and playing in an all-conquering 1980s West Indies team. Pillar 1 (35 Pts) rewards players carrying weaker lineups (like Brian Lara at #3), meaning stacked team contexts naturally suppress individual carrying metrics.
+* **Jacques Kallis & Top 10 (Elite Tier Stability):** Demonstrates **Tier Retention Integrity**. Despite losing 9.91 points due to the baseline model compression, Kallis maintained his exact position at **#7**. In fact, the entire **Top 10 order remained 100% identical** (0 rank delta from Sangakkara at #1 down to Gavaskar at #10), proving that elite legends do not rely on volume inflation to justify their ranking.
+* **SM Katich (The Efficiency Climber):** Highlights how **Rankings are Relative while Scores are Absolute**. Katich lost 9.74 points in raw score, yet **climbed 18 spots** (from #107 to #89). Under V2's 5% longevity cap, mid-tier players with high peak averages and efficient scoring rates surged past high-volume accumulators who lacked dominant rate metrics.
+* **Shivnarine Chanderpaul (The Accumulator Tax):** Illustrates the direct impact of **capping longevity at 5%**. In V1, Chanderpaul's massive career total (11,867 runs across 164 Tests) provided a heavy volume cushion that elevated him to #11. In V2, stripping away raw accumulation rewards dropped him 6 spots to #17, aligning him with his true peer-relative impact tier.
+* **Ricky Ponting (+4 Climber, #16 -> #12):** Demonstrates how lowering the volume tax allows peak dominance to shine. Ponting's peak period rate stats and match-winning contributions carried him closer to the Top 10 once raw duration was de-emphasized.
+* **Harry Brook & Recent Debuts (The V3 Precursor):** Highlights the limits of a pure re-weighting model on active/recent players. With a score delta of -13.51 (-12 rank drop), recent players lack the career runway to build volume under V1 legacy rules. This N=1 sample distortion in the 2020s cohort establishes the exact business case for **V3's algorithmic era governance**.
 
 ---
 
 ## MODEL GOVERNANCE & VALIDATION SUMMARY
 
-* **Tier Integrity:** 9 out of the Top 10 players maintained their Top 10 status in V2, proving the model recalibrated absolute values without creating arbitrary noise at the top.
-* **Core Takeaway:** Under V2, **winning meant losing the fewest points**. Rank surges were driven by score resilience against global deflation.
-
-
+* **V2 Baseline Alignment:** The recalibration in V2 established a stronger analytical foundation by prioritizing genuine match impact over sheer run accumulation. Capping longevity at 5% shifted the model's focus toward peak efficiency over total career volume.
+* **Top-End Preservation:** 100% of the Top 10 retained their exact rank positions (0 movement), confirming that V2 fixed structural volume biases without introducing arbitrary noise at the top of the leaderboard.
+* **Bridge to V3:** V2 acted as an essential control variable by isolating the **weighting fix** (what we measure: Quality over Volume). This clean, rate-first canvas ensures that **V3** can safely introduce era governance and midpoint rules (when they played) without inflating raw run bulk.
